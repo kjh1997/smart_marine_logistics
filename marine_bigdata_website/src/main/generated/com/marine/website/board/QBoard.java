@@ -22,6 +22,8 @@ public class QBoard extends EntityPathBase<Board> {
 
     public static final QBoard board = new QBoard("board");
 
+    public final NumberPath<Long> alive = createNumber("alive", Long.class);
+
     public final com.marine.website.category.QCategory category;
 
     public final StringPath context = createString("context");

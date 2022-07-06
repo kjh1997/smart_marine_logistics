@@ -22,9 +22,11 @@ public class BoardService {
         board.setContext(boardDTO.getContext());
 
         board.setCategory(categoryService.getCategoryByName(boardDTO.getCategory()));
+        System.out.println(boardDTO.getUsername());
         board.setUser(userService.getUser(boardDTO.getUsername()));
 
         Long boardId = boardRepositoryDsl.save(board);
+        System.out.println("save test");
         return boardId;
 
     }
@@ -36,6 +38,10 @@ public class BoardService {
 
     public List<Board> boardList() {
         return boardRepository.findAll();
+    }
+
+    public int boardListCount(){
+        return boardRepository.findAll().size();
     }
 
     public Board modifyBoard(BoardDTO boardDTO) {

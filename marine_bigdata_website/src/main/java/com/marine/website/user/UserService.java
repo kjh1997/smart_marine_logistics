@@ -30,12 +30,8 @@ public class UserService {
     }
 
     public SiteUser getUser(String username) {
-        Optional<SiteUser> siteUser = this.userRepository.findByusername(username);
-        if (siteUser.isPresent()) {
-            return siteUser.get();
-        }else{
-            throw new DataNotFoundException("siteuser not found");
-        }
+        return this.userRepository.findByusername(username);
+
     }
 
     //Test 진행 중

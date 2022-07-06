@@ -28,13 +28,12 @@ public class Board {
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "siteuser_id")
+    @JoinColumn(name = "user_id")
     private SiteUser user;
-
     private String context;
     private String title;
     private LocalDateTime localDateTime;
-
+    private Long alive;
     public Board() {
         this.localDateTime = LocalDateTime.now();
     }
