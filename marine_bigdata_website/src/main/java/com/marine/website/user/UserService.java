@@ -29,6 +29,17 @@ public class UserService {
         return user;
     }
 
+    public SiteUser createAPI(UserDTO userDTO) {
+        SiteUser user = new SiteUser();
+
+        user.setUsername(userDTO.getName());
+        user.setEmail(userDTO.getEmail());
+
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        this.userRepository.save(user);
+        return user;
+    }
+
     public SiteUser getUser(String username) {
         return this.userRepository.findByusername(username);
 

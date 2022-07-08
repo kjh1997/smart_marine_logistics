@@ -4,15 +4,13 @@ package com.marine.website.category;
 import com.marine.website.board.Board;
 import com.marine.website.category.categorydto.CategoryDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class CategoryApiController {
     private final CategoryService categoryService;
 

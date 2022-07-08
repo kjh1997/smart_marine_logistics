@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 public class BoardDTO {
     private Long id;
     private String title;
-    private String title2;
 
     private String context;
 

@@ -64,7 +64,25 @@ public class BoardRepositoryDsl {
         }
         return board.title.contains(searchKeyword);
     }
-
+    public int getBoardListCount(String searchKeyword,String searchCategory){
+        int cnt = query
+                .select(board)
+                .from(board)
+                .join(board.user, siteUser)
+                .join(board.category, category)
+                .where(categoryStateEQ(searchCategory))
+                .where(searchTitleStateEQ(searchKeyword)).fetch().size();
+        int solt =0;
+        if (cnt%10 != 0){
+            solt =1;
+        }
+        System.out.println(cnt);
+        int result = solt + (cnt / 10);
+        System.out.println("solt : "+ solt);
+        System.out.println("cnt/10 " + cnt / 10);
+        System.out.println(result);
+        return result;
+    }
     public List<Board> getBoardListTest(int page,String searchKeyword,String searchCategory){
         int offset = (page - 1)*10;
         return query
