@@ -1,11 +1,13 @@
+from ast import excepthandler
 from flask import Flask, request 
 from bs4 import BeautifulSoup
 from selenium import webdriver 
-from PortMisCrawling import PortMisCrawling
+from ImoCrawling import PortMisCrawling
 from flask import jsonify
 
 
 app = Flask(__name__)
+
 @app.route('/')
 def home():
 
@@ -19,7 +21,11 @@ def ulsan():
 
 @app.route('/imo')
 def imo():
-    params = request.get_json()
+    try:
+        params = request.get_json()
+    except:
+        params=0
+        pass
     if len(params) == 0:
         return 'No parameter'
     name = params['marine']
@@ -28,6 +34,10 @@ def imo():
     
     return jsonify(IMO_num)
 
+@app.route('/io')
+def portIo():
+    crawler.boatIO()
+    pass
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("*")
 public class BoardApiController {
     private final BoardRepositoryDsl boardRepositoryDsl;
     private final BoardService boardService;
